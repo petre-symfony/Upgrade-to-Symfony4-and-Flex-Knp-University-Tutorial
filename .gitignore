@@ -15,3 +15,8 @@
 /vendor/
 /web/bundles/
 /nbproject/
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
