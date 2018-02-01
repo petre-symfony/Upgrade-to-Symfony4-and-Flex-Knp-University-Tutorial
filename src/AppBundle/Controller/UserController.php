@@ -9,18 +9,19 @@ use AppBundle\Security\LoginFormAuthenticator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 class UserController extends Controller
 {
     /**
      * @Route("/register", name="user_register")
      */
-    public function registerAction(Request $request, LoginFormAuthenticator $authenticator)
+    public function registerAction(Request $request, LoginFormAuthenticator $authenticator, GuardAuthenticatorHandler $guardHandler)
     {
         $form = $this->createForm(UserRegistrationForm::class);
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var User $user */
             $user = $form->getData();
             $em = $this->getDoctrine()->getManager();
@@ -29,7 +30,7 @@ class UserController extends Controller
 
             $this->addFlash('success', 'Welcome '.$user->getEmail());
 
-            return $this->get('security.authentication.guard_handler')
+            return $guardHandler
                 ->authenticateUserAndHandleSuccess(
                     $user,
                     $request,
@@ -61,7 +62,7 @@ class UserController extends Controller
         $form = $this->createForm(UserEditForm::class, $user);
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
