@@ -21,7 +21,7 @@ class UserController extends Controller
         $form = $this->createForm(UserRegistrationForm::class);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isValid()) {
             /** @var User $user */
             $user = $form->getData();
             $em = $this->getDoctrine()->getManager();
