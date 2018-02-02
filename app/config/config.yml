@@ -10,9 +10,6 @@ parameters:
     cache_type: file_system
     container.autowiring.strict_mode: true
 
-framework:
-    assets: ~
-
 # Doctrine Configuration
 doctrine:
     dbal:
