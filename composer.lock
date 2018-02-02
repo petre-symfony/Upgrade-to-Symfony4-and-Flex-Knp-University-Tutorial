@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad3945a945c4db2f8a8460365450c3ed",
+    "content-hash": "ded441b4e832d493992dbca38c2f3e5c",
     "packages": [
         {
             "name": "behat/transliterator",
