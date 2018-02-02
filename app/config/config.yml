@@ -11,9 +11,6 @@ parameters:
     container.autowiring.strict_mode: true
 
 framework:
-    trusted_hosts:   ~
-    fragments:       ~
-    http_method_override: true
     assets: ~
 
 # Doctrine Configuration
