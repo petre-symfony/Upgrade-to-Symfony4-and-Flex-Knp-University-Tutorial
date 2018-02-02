@@ -47,3 +47,5 @@ services:
     AppBundle\EventSubscriber\AddNiceHeaderEventSubscriber:
         arguments:
             $showDiscouragingMessage: true
+
+    Symfony\Component\Security\Guard\GuardAuthenticatorHandler: '@security.authentication.guard_handler'         
