@@ -11,9 +11,6 @@ parameters:
     container.autowiring.strict_mode: true
 
 framework:
-    templating:
-        engines: ['twig']
-        #assets_version: SomeVersionScheme
     trusted_hosts:   ~
     fragments:       ~
     http_method_override: true
