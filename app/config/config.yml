@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: en
     cache_type: file_system
+    container.autowiring.strict_mode: true
 
 framework:
     #esi:             ~
@@ -68,9 +69,9 @@ doctrine:
 doctrine_cache:
     providers:
         my_markdown_cache:
-            type: %cache_type%
+            type: '%cache_type%'
             file_system:
-                directory: %kernel.cache_dir%/markdown_cache
+                directory: '%kernel.cache_dir%/markdown_cache'
 
 stof_doctrine_extensions:
     default_locale: en_US
