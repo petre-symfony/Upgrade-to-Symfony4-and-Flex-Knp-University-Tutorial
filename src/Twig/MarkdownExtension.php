@@ -2,7 +2,7 @@
 
 namespace App\Twig;
 
-use AppBundle\Service\MarkdownTransformer;
+use App\Service\MarkdownTransformer;
 
 class MarkdownExtension extends \Twig_Extension
 {

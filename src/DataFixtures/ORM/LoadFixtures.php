@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures\ORM;
 
-use AppBundle\Entity\Genus;
+use App\Entity\Genus;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Nelmio\Alice\Fixtures;

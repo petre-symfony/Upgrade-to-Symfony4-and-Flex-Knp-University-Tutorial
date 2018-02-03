@@ -2,7 +2,7 @@
 
 namespace App\EventSubscriber;
 
-use AppBundle\Service\MessageManager;
+use App\Service\MessageManager;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;

@@ -2,9 +2,9 @@
 
 namespace App\Form;
 
-use AppBundle\Entity\GenusScientist;
-use AppBundle\Entity\User;
-use AppBundle\Repository\UserRepository;
+use App\Entity\GenusScientist;
+use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

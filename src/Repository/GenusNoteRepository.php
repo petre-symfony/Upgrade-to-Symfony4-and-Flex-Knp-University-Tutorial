@@ -2,8 +2,8 @@
 
 namespace App\Repository;
 
-use AppBundle\Entity\Genus;
-use AppBundle\Entity\GenusNote;
+use App\Entity\Genus;
+use App\Entity\GenusNote;
 use Doctrine\ORM\EntityRepository;
 
 class GenusNoteRepository extends EntityRepository
