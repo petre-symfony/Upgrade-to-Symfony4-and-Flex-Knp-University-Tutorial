@@ -27,6 +27,7 @@ security:
             logout:
                 path: /logout
             switch_user: ~
+            logout_on_user_change: true
             # activate different ways to authenticate
 
             # http_basic: ~
