@@ -2,9 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use AppBundle\Entity\Genus;
-use AppBundle\Form\GenusFormType;
-use AppBundle\Service\MessageManager;
+use App\Entity\Genus;
+use App\Form\GenusFormType;
+use App\Service\MessageManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 Use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +22,7 @@ class GenusAdminController extends Controller
     public function indexAction()
     {
         $genuses = $this->getDoctrine()
-            ->getRepository('AppBundle:Genus')
+            ->getRepository(Genus::class)
             ->findAll();
 
         return $this->render('admin/genus/list.html.twig', array(

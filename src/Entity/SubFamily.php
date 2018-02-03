@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SubFamilyRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\SubFamilyRepository")
  * @ORM\Table(name="sub_family")
  */
 class SubFamily

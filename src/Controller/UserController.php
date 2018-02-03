@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use AppBundle\Entity\User;
-use AppBundle\Form\UserEditForm;
-use AppBundle\Form\UserRegistrationForm;
-use AppBundle\Security\LoginFormAuthenticator;
+use App\Entity\User;
+use App\Form\UserEditForm;
+use App\Form\UserRegistrationForm;
+use App\Security\LoginFormAuthenticator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

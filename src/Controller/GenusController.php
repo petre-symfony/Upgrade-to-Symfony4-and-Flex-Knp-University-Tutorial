@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
-use AppBundle\Entity\Genus;
-use AppBundle\Entity\GenusNote;
-use AppBundle\Entity\GenusScientist;
-use AppBundle\Service\MarkdownTransformer;
+use App\Entity\Genus;
+use App\Entity\GenusNote;
+use App\Entity\GenusScientist;
+use App\Entity\SubFamily;
+use App\Entity\User;
+use App\Service\MarkdownTransformer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +24,7 @@ class GenusController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $subFamily = $em->getRepository('AppBundle:SubFamily')
+        $subFamily = $em->getRepository(SubFamily::class)
             ->findAny();
 
         $genus = new Genus();
@@ -38,7 +40,7 @@ class GenusController extends Controller
         $genusNote->setCreatedAt(new \DateTime('-1 month'));
         $genusNote->setGenus($genus);
 
-        $user = $em->getRepository('AppBundle:User')
+        $user = $em->getRepository(User::class)
             ->findOneBy(['email' => 'aquanaut1@example.org']);
 
         $genusScientist = new GenusScientist();
@@ -65,7 +67,7 @@ class GenusController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $genuses = $em->getRepository('AppBundle:Genus')
+        $genuses = $em->getRepository(Genus::class)
             ->findAllPublishedOrderedByRecentlyActive();
 
         return $this->render('genus/list.html.twig', [
@@ -84,7 +86,7 @@ class GenusController extends Controller
 
         $logger->info('Showing genus: '.$genus->getName());
 
-        $recentNotes = $em->getRepository('AppBundle:GenusNote')
+        $recentNotes = $em->getRepository(GenusNote::class)
             ->findAllRecentNotesForGenus($genus);
 
         return $this->render('genus/show.html.twig', array(
@@ -127,7 +129,7 @@ class GenusController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $genusScientist = $em->getRepository('AppBundle:GenusScientist')
+        $genusScientist = $em->getRepository(GenusScientist::class)
             ->findOneBy([
                 'user' => $userId,
                 'genus' => $genusId
