@@ -11,15 +11,18 @@ use App\Entity\User;
 use App\Service\MarkdownTransformer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+
 use Psr\Log\LoggerInterface;
 
 class GenusController extends Controller
 {
     /**
      * @Route("/genus/new")
+     * @IsGranted("RANDOM_ACCESS")
      */
     public function newAction()
     {
