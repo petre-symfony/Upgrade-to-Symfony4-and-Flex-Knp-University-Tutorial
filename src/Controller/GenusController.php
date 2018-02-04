@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Genus;
+use App\Repository\GenusRepository;
 use App\Entity\GenusNote;
 use App\Entity\GenusScientist;
 use App\Entity\SubFamily;
@@ -63,11 +64,9 @@ class GenusController extends Controller
     /**
      * @Route("/genus")
      */
-    public function listAction()
+    public function listAction(GenusRepository $genusRepository)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $genuses = $em->getRepository(Genus::class)
+        $genuses = $genusRepository
             ->findAllPublishedOrderedByRecentlyActive();
 
         return $this->render('genus/list.html.twig', [
